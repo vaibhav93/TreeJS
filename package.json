@@ -1,0 +1,43 @@
+{
+  "name": "TreeJS",
+  "version": "0.0.1",
+  "description": "Distributed decision trees",
+  "main": "dist/Tree.cjs.js",
+  "module": "dist/Tree.esm.js",
+  "browser": "dist/Tree.umd.js",
+  "dependencies": {
+    "fast-csv": "^2.4.1",
+    "ms": "^2.0.0",
+    "underscore": "^1.8.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vaibhav93/TreeJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vaibhav93/TreeJS/issues"
+  },
+  "homepage": "https://github.com/vaibhav93/TreeJS#readme",
+  "keywords": [
+    "Machine",
+    "learning",
+    "Decisition",
+    "Trees",
+    "Node.js"
+  ],
+  "author": "Vaibhav Bansal",
+  "devDependencies": {
+    "rollup": "^0.50.0",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "node test/test.js",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist"
+  ]
+}
