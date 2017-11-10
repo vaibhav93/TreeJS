@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.howLongUntilLunch = {})));
+	(factory((global.Tree = {})));
 }(this, (function (exports) { 'use strict';
 
 class SplitFinder {
@@ -1573,12 +1573,9 @@ var underscore = createCommonjsModule(function (module, exports) {
 class Gini extends SplitFinder {
 	constructor(instancesAtNode) {
 		super(instancesAtNode);
-    this.instancesAtNode = instancesAtNode;
+		this.instancesAtNode = instancesAtNode;
 	}
 
-	static calculateInformationGain() {
-		console.log('test');
-	}
 	split() {
 		//Get the set of class values from last value of each instance
 		// TODO : Optimize. get classes array from num_class in Tree settings.
@@ -1678,25 +1675,11 @@ class Tree {
 	}
 
 	trainClassifier() {
-    console.log(this.trainData);
 		let results = new Gini(this.trainData).split();
 		console.log("best impurity " + results.impurity + " at index " + results.featureIndex + " and featureValue " + results.featureValue);
 	}
 	trainRegressor() {}
 }
-
-// import ms from 'ms';
-// import lunchtime from './lunchtime.js';
-// import millisecondsUntil from './millisecondsUntil.js';
-// export
-// export default function howLongUntilLunch(hours, minutes) {
-// 	// lunch is at 12.30
-// 	if (hours === undefined) hours = 12;
-// 	if (minutes === undefined) minutes = 30;
-//
-// 	var millisecondsUntilLunchTime = millisecondsUntil(lunchtime(hours, minutes));
-// 	return ms(millisecondsUntilLunchTime, { long: true });
-// }
 
 exports.Tree = Tree;
 exports.Gini = Gini;

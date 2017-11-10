@@ -3,12 +3,9 @@ import _ from 'underscore';
 export default class Gini extends SplitFinder {
 	constructor(instancesAtNode) {
 		super(instancesAtNode);
-    this.instancesAtNode = instancesAtNode;
+		this.instancesAtNode = instancesAtNode;
 	}
 
-	static calculateInformationGain() {
-		console.log('test');
-	}
 	split() {
 		//Get the set of class values from last value of each instance
 		// TODO : Optimize. get classes array from num_class in Tree settings.

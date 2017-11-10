@@ -12,7 +12,6 @@ export default class Tree {
 	}
 
 	trainClassifier() {
-    console.log(this.trainData);
 		let results = new Gini(this.trainData).split();
 		console.log("best impurity " + results.impurity + " at index " + results.featureIndex + " and featureValue " + results.featureValue);
 	}
