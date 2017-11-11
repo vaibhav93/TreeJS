@@ -1,5 +1,5 @@
-import SplitFinder from '../SplitFinder';
-import _ from 'underscore';
+import SplitFinder from "../SplitFinder";
+import _ from "underscore";
 export default class Gini extends SplitFinder {
 	constructor(instancesAtNode) {
 		super(instancesAtNode);
@@ -12,12 +12,12 @@ export default class Gini extends SplitFinder {
 		//This can allow to stop early when all classes have been found.
 		const classes = new Set(this.instancesAtNode.map(function(instance) {
 			return instance[instance.length - 1];
-		}))
+		}));
 		var split_details = {
 			impurity: Number.MAX_SAFE_INTEGER,
 			featureIndex: null,
 			groups: null
-		}
+		};
 		//Iterate over all features. Ignore last index which is instance label
 		for (var featureIndex = 0; featureIndex < this.instancesAtNode[0].length - 1; featureIndex++) {
 			for (let trainingInstance of this.instancesAtNode) {
@@ -30,7 +30,7 @@ export default class Gini extends SplitFinder {
 						featureIndex: featureIndex,
 						featureValue: trainingInstance[featureIndex],
 						groups: groups
-					}
+					};
 				}
 			}
 		}
@@ -51,7 +51,7 @@ export default class Gini extends SplitFinder {
 		return {
 			left: left,
 			right: right
-		}
+		};
 	}
 	// Fix later. can be 2^(q-1) - 1 splits for q categories.
 	// Can also optimize for binary classification task.
@@ -67,7 +67,7 @@ export default class Gini extends SplitFinder {
 		return {
 			left: left,
 			right: right
-		}
+		};
 	}
 	// Groups here represent the subsets in which all instances at this node
 	// are split based on the current split point. We are iterating through

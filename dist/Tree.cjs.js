@@ -105,6 +105,19 @@ class Gini extends SplitFinder {
 
 }
 
+class TreeNode {
+
+	constructor(featureIndex, featureValue, depth) {
+		this.featureIndex = featureIndex;
+		this.featureValue = featureValue;
+		this.depth = depth;
+	}
+  print(){
+    console.log("Tree Node :: Depth: " + this.depth + ' :: Feature Index: '+ this.featureIndex + ' :: Feature Value: ' + this.featureValue);
+  }
+
+}
+
 class Tree {
 	constructor(trainData, settings) {
 		this.trainData = trainData;
@@ -119,7 +132,10 @@ class Tree {
 
 	trainClassifier() {
 		let results = new Gini(this.trainData).split();
-		console.log("best impurity " + results.impurity + " at index " + results.featureIndex + " and featureValue " + results.featureValue);
+		var depth = 0;
+	  var rootNode = new TreeNode(results.featureIndex, results.featureValue, depth);
+		rootNode.print();
+		//console.log("best impurity " + results.impurity + " at index " + results.featureIndex + " and featureValue " + results.featureValue);
 	}
 	trainRegressor() {}
 }
